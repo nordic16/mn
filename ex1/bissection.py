@@ -39,11 +39,11 @@ def bissection(a0, b0):
     return c
 
 def main():
-    values = {'elem1': {'a0': 0.7, 'b0': 2.6}, 'elem2': {'a0': 0.4, 'b0': 1.7}, 'elem3': {'a0': -3, 'b0': 0.6}}
+    values = {0: {'a0': 0.7, 'b0': 2.6}, 1: {'a0': 0.4, 'b0': 1.7}, 2: {'a0': -3, 'b0': 0.6}}
 
-    for i in range(1, 4):
-        a0 = values[f'elem{i}']['a0']
-        b0 = values[f'elem{i}']['b0']
+    for i in range(3):
+        a0 = values[i]['a0']
+        b0 = values[i]['b0']
         print(f'Root is: {bissection(a0, b0)}')
             
 
