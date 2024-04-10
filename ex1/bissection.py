@@ -1,7 +1,7 @@
 """BISSECTION METHOD TO FIND ROOTS"""
 
-from math import sqrt
 import matplotlib.pyplot as plt
+from math import log
 
 # example of x^2 - c function, where c is an integer
 def f(x) -> float:
@@ -17,15 +17,19 @@ def bissection(a0, b0):
 
     i = 0
     values = []
+    errors = []
 
-    while (abs(b0 - a0) > e):
+    # abs(b0 - a0) is the error.
+    while abs(b0 - a0) > e:
+        errors.append(abs(b0-a0))
+
         c = (a0 + b0) / 2
         values.append(c)
 
         if f(c) == 0:
             break
 
-        elif eq_sign(f(a0), f(c)):
+        if eq_sign(f(a0), f(c)):
             a0 = c
 
         else:
@@ -34,7 +38,15 @@ def bissection(a0, b0):
         i += 1
     
     plt.plot(range(0, i), values)
+    plt.title(f'x values as x approaches {c}')
     plt.show()
+
+    # error:
+    plt.plot(range(0, i), errors)
+    plt.yscale('log')
+    plt.title('Error by bisection method')
+    plt.show()
+
     return c
 
 
@@ -45,7 +57,7 @@ def main():
         a0 = values[i]['a0']
         b0 = values[i]['b0']
         print(f'Root is: {bissection(a0, b0)}')
-            
+
 
 if __name__ == '__main__':
     main()
