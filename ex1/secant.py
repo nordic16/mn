@@ -50,6 +50,7 @@ def main():
     values = results[1]
     plt.plot(range(1, len(values) + 1), values)
     plt.title(f'Plot calculated by secant method as x approaches {results[0]}')
+    plt.show()
 
     # errors
     errors = results[2]
