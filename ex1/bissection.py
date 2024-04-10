@@ -1,7 +1,6 @@
 """BISSECTION METHOD TO FIND ROOTS"""
 
 import matplotlib.pyplot as plt
-from math import log
 
 # example of x^2 - c function, where c is an integer
 def f(x) -> float:
@@ -38,13 +37,13 @@ def bissection(a0, b0):
         i += 1
     
     plt.plot(range(0, i), values)
-    plt.title(f'x values as x approaches {c}')
+    plt.title(f'Plot calculated by bissection method as x approaches {c}')
     plt.show()
 
     # error:
     plt.plot(range(0, i), errors)
     plt.yscale('log')
-    plt.title('Error by bisection method')
+    plt.title('Error by bissection method as x approaches')
     plt.show()
 
     return c

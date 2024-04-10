@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-from math import log
 
 def f(x):
     return x ** 2 - 4
@@ -14,6 +13,7 @@ def secant(x0, x1, kmax):
     e = 10 ** -5
     d = f_x0 / f_dx(x0)
     errors = []
+    values = []
 
     x2 = 0
 
@@ -21,6 +21,8 @@ def secant(x0, x1, kmax):
     while abs(d) > e:
         errors.append(abs(d))
         x2 = x1 - d
+        values.append(x2)
+
         x0 = x1
         x1 = x2
         f_x0 = f_x1
@@ -35,7 +37,7 @@ def secant(x0, x1, kmax):
 
         k += 1
 
-    return (x2, errors)
+    return (x2, values, errors)
 
 
 def main():
@@ -44,12 +46,17 @@ def main():
 
     print(f'Root is: {results[0]}')
 
+    # x values
+    values = results[1]
+    plt.plot(range(1, len(values) + 1), values)
+    plt.title(f'Plot calculated by secant method as x approaches {results[0]}')
+
     # errors
-    errors = results[1]
+    errors = results[2]
     plt.plot(range(1, len(errors) + 1), errors)
     plt.yscale('log')
+    plt.title(f'Error by secant method as x approaches {results[0]}')
     plt.show()
-
 
 
 if __name__ == '__main__':
