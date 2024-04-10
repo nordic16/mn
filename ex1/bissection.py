@@ -4,10 +4,10 @@ from math import sqrt
 import matplotlib.pyplot as plt
 
 # example of x^2 - c function, where c is an integer
-def f(x):
+def f(x) -> float:
     return x ** 2 - 4
 
-def eq_sign(a, b):
+def eq_sign(a, b) -> bool:
     return (a > 0 and b > 0) or (a < 0 and b < 0)
 
 
@@ -30,13 +30,13 @@ def bissection(a0, b0):
 
         else:
             b0 = c
-        
 
         i += 1
     
     plt.plot(range(0, i), values)
     plt.show()
     return c
+
 
 def main():
     values = {0: {'a0': 0.7, 'b0': 2.6}, 1: {'a0': 0.4, 'b0': 1.7}, 2: {'a0': -3, 'b0': 0.6}}
@@ -49,13 +49,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
